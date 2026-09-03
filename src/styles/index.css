@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply scroll-smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-warm-white font-sans text-dark-brown;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  @apply font-bold tracking-tight;
+}
+
+.serif-heading {
+  font-family: 'Cormorant Garamond', serif;
+  @apply font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight;
+}
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  @apply text-sm font-semibold uppercase tracking-widest text-muted-gold;
+}
+
+.btn-primary {
+  @apply px-8 py-3 bg-dark-brown text-warm-white font-medium hover:bg-opacity-90 transition-all duration-300 rounded-sm;
+}
+
+.btn-secondary {
+  @apply px-8 py-3 border-2 border-dark-brown text-dark-brown font-medium hover:bg-dark-brown hover:text-warm-white transition-all duration-300 rounded-sm;
+}
+
+.btn-tertiary {
+  @apply px-6 py-2 text-muted-gold font-medium hover:text-dark-brown transition-colors duration-300;
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  @apply transition-all duration-500 ease-out;
+}
+
+/* Blur and fade animations */
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-blur-in {
+  animation: blurIn 0.8s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.8s ease-out;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.6s ease-out;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C59A5A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a67c3d;
+}
+
+/* Image lazy loading */
+img[loading="lazy"] {
+  @apply transition-opacity duration-500;
+}
+
+img[loading="lazy"]:not([src]) {
+  @apply opacity-0;
+}
+
+img[loading="lazy"][src] {
+  @apply opacity-100;
+}
